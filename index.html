@@ -1,358 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic page setup and meta info -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ENG1 Group 7 – Game Download & Team</title>
-  <meta name="description" content="ENG1 Group 7 official website – game download, screenshots, documentation, and team info." />
+  <title>ENG1 Group 7 – Game Website</title>
+  <meta name="description" content="ENG1 Group 7 – download, screenshots, documentation, and team." />
 
-  <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
 
-  <!-- Internal styles -->
   <style>
     :root{
-      /* Chalkboard/classroom palette */
-      --bg:#07110d;
-      --card:#0b1b15;
-      --muted:#a6b8ae;
+      --bg:#0b1410;
+      --panel:#102019;
+      --border:rgba(255,255,255,.10);
       --text:#eaf2ed;
+      --muted:#b6c7bd;
 
-      /* Accent = chalk + warning bell */
-      --accent:#d9f99d;     /* chalky green-yellow */
-      --accent-2:#fbbf24;   /* detention bell amber */
+      --accent:#d9f99d;
+      --accent2:#fbbf24;
 
-      --radius:20px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      background:
-        radial-gradient(1000px 600px at 10% 0%, rgba(217,249,157,.10), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(251,191,36,.10), transparent 55%),
-        linear-gradient(180deg, #07110d 0%, #05100c 100%);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      background:#0b1410;
       color:var(--text);
-      font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      line-height:1.6;
     }
 
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .wrap{max-width:1000px;margin:0 auto;padding:18px}
 
     header{
-      position:sticky;top:0;
-      backdrop-filter:saturate(180%) blur(12px);
-      background:rgba(7,17,13,.75);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      z-index:50;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:14px 16px;
+      background:#0f1c16;
+      margin-bottom:18px;
     }
 
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
     .logo{
-      width:52px;height:52px;border-radius:10px;
+      width:42px;height:42px;border-radius:10px;
       display:grid;place-items:center;
-      background:
-        linear-gradient(135deg, rgba(217,249,157,.25), rgba(251,191,36,.20));
+      background:linear-gradient(135deg, rgba(217,249,157,.25), rgba(251,191,36,.20));
       border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 4px 14px rgba(251,191,36,.18);
       font-weight:800;
-      letter-spacing:.5px;
+      color:#0b120f;
     }
 
-    .brand h1{font-size:18px;margin:0;font-weight:800;letter-spacing:.4px}
-    .links{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
-    .links a{opacity:.82}
-    .links a:hover{opacity:1}
+    .brand h1{margin:0;font-size:18px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
 
-    section{padding:28px 0 56px}
-    .hero{padding:56px 0}
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    nav a{
+      padding:6px 10px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      font-size:14px;
+    }
+    nav a:hover{
+      background:rgba(255,255,255,.06);
+    }
 
-    .card{
-      background:rgba(11,27,21,.92);
-      border:1px solid rgba(255,255,255,.06);
+    /* Sections */
+    section{
+      border:1px solid var(--border);
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
+      background:var(--panel);
+      padding:16px;
+      margin-bottom:16px;
     }
 
-    .hero .copy{padding:28px;text-align:center;max-width:760px;margin:auto}
-    .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-    h2{margin:8px 0 12px;font-size:36px;line-height:1.15}
-    p{color:#d2dfd8;margin:0 0 14px}
+    h2{margin:0 0 10px;font-size:22px}
+    h3{margin:0 0 10px;font-size:18px}
+    p{margin:0 0 10px;color:rgba(234,242,237,.88)}
 
-    .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+    /* Buttons */
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .btn{
       display:inline-flex;align-items:center;gap:10px;
-      padding:12px 16px;border-radius:14px;
+      padding:10px 12px;
+      border-radius:12px;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(6,18,13,.35);
+      background:rgba(0,0,0,.15);
+      font-weight:700;
       cursor:pointer;
-      transition:transform .05s ease, filter .15s ease;
+      text-decoration:none;
     }
     .btn.primary{
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
       color:#0b120f;
-      font-weight:800;
       border:none;
     }
-    .btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
 
-    .meta{display:flex;gap:16px;margin-top:10px;color:var(--muted);font-size:14px;justify-content:center;flex-wrap:wrap}
+    /* Small meta list */
+    .meta{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .meta div{margin-top:4px}
 
-    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-    .section-title h3{margin:0;font-size:18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+    /* Simple grid */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:12px;
+    }
 
-    /* Screenshots grid */
-    .screenshots{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:24px}
-    .screenshots img{
+    .tile{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      padding:12px;
+      background:rgba(255,255,255,.03);
+    }
+    .tile h4{margin:0 0 6px;font-size:16px}
+    .tile p{margin:0 0 10px;color:var(--muted);font-size:14px}
+
+    /* Screenshots */
+    .shot img{
       width:100%;
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      display:block;
     }
 
-    /* Docs cards */
-    .doc-card{padding:18px;display:flex;flex-direction:column;gap:10px}
-    .doc-card .doc-title{font-weight:800;margin:0}
-    .doc-card .doc-desc{color:var(--muted);margin:0}
-    .doc-actions{margin-top:auto}
-
-    /* Team section */
-    .team-card{padding:18px;text-align:center}
-    .avatar{
-      width:64px;height:64px;border-radius:16px;margin:0 auto;
-      background:radial-gradient(circle at 30% 30%, rgba(217,249,157,.95), rgba(251,191,36,.85));
-      border:1px solid rgba(255,255,255,.10);
+    /* Team list */
+    .team-item{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      padding:12px;
+      background:rgba(255,255,255,.03);
     }
-    .team-name{margin:10px 0 4px;font-weight:800}
-    .role{color:var(--muted);font-size:14px;margin:0}
+    .team-item .name{font-weight:800;margin-bottom:2px}
+    .team-item .role{color:var(--muted);font-size:14px;margin:0}
 
-    /* Tutorial */
-    .video-wrapper{
-      position:relative;
-      aspect-ratio:16/9;
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
-    }
-    .video-thumb{width:100%;height:100%;object-fit:cover;display:block}
-    .play-overlay{
-      position:absolute;inset:0;
-      display:grid;place-items:center;
-      background:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.40));
-      cursor:pointer;
-    }
-    .play-overlay button{
-      background:rgba(0,0,0,.55);
-      backdrop-filter:blur(6px);
-      border:none;border-radius:999px;
-      padding:14px 20px;color:#fff;font-weight:800;
-    }
-    .video-title{text-align:center;margin:0 0 12px;font-size:16px;color:var(--muted)}
-
-    .footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
-
-    /* Small screens */
-    @media (max-width: 640px){
-      h2{font-size:28px}
-      .links{gap:12px}
+    /* Footer */
+    footer{
+      color:var(--muted);
+      font-size:14px;
+      text-align:center;
+      padding:10px 0;
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <!-- Simple “logo” mark (replace with an <img> if you want) -->
-        <div class="logo" aria-label="Game logo">DD</div>
-        <h1>ENG1 Group 7</h1>
+  <div class="wrap">
+
+    <header>
+      <div class="top">
+        <div class="brand">
+          <div class="logo">DD</div>
+          <div>
+            <h1>ENG1 Group 7</h1>
+            <p>School escape maze game (ENG1)</p>
+          </div>
+        </div>
+
+        <nav aria-label="Navigation">
+          <a href="#download">Download</a>
+          <a href="#screenshots">Screenshots</a>
+          <a href="#docs">Documentation</a>
+          <a href="#team">Team</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- DOWNLOAD -->
+    <section id="download">
+      <h2>Download</h2>
+      <p>
+        ENG1 Group 7 is a school-themed maze escape game. You have 5 minutes to find the exit while avoiding the teacher.
+        Events around the school can help or slow you down.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" id="downloadBtn" href="#" download>
+          Download <span id="artifactExt">( .zip )</span>
+        </a>
       </div>
 
-      <!-- Nav links -->
-      <nav class="links" aria-label="Primary navigation">
-        <a href="#downloads">Download</a>
-        <a href="#screenshots">Screenshots</a>
-        <a href="#docs">Documentation</a>
-        <a href="#team">Our Team</a>
-        <a href="#tutorial">Tutorial</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-
-    <!-- DOWNLOAD SECTION -->
-    <section id="downloads" class="hero">
-      <div class="card copy">
-        <div class="eyebrow">Download</div>
-        <h2>Escape the School. Don’t get caught.</h2>
-        <p>
-          ENG1 Group 7 is a school-themed maze escape game. You have five minutes to find a route out,
-          trigger helpful classroom “events,” and avoid the teacher’s patrol.
-        </p>
-        <p>
-          Your final score is based on escape time and interactions with positive, negative, and hidden events.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" id="downloadBtn" href="#" download>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 3v10m0 0 4-4m-4 4-4-4M4 21h16"
-                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Download <span id="artifactExt">( .zip )</span>
-          </a>
-        </div>
-
-        <div class="meta">
-          <div>Version <strong id="version">1.0.0</strong></div>
-          <div>Platform: Desktop</div>
-          <div>Session-based: no save after completion</div>
-        </div>
+      <div class="meta">
+        <div>Version: <strong id="version">1.0.0</strong></div>
+        <div>Platform: Desktop</div>
+        <div>Time limit: 5 minutes</div>
       </div>
     </section>
 
-    <!-- SCREENSHOTS SECTION -->
+    <!-- SCREENSHOTS -->
     <section id="screenshots">
-      <div class="section-title">
-        <h3>In-Game Screenshots</h3>
-      </div>
-
-      <div class="screenshots">
-        <!-- Replace these filenames with your school-themed screenshots -->
-        <img src="screenshots/Screenshot 1.png" alt="Screenshot 1: School maze corridor" />
-        <img src="screenshots/Screenshot 2.png" alt="Screenshot 2: Classroom event trigger" />
-        <img src="screenshots/Screenshot 3.png" alt="Screenshot 3: Teacher patrol encounter" />
-        <img src="screenshots/Screenshot 4.png" alt="Screenshot 4: Hidden event discovery" />
-        <img src="screenshots/Screenshot 5.png" alt="Screenshot 5: Exit point / escape" />
+      <h3>In-Game Screenshots</h3>
+      <div class="grid">
+        <div class="tile shot"><img src="screenshots/Screenshot 1.png" alt="Screenshot 1"></div>
+        <div class="tile shot"><img src="screenshots/Screenshot 2.png" alt="Screenshot 2"></div>
+        <div class="tile shot"><img src="screenshots/Screenshot 3.png" alt="Screenshot 3"></div>
+        <div class="tile shot"><img src="screenshots/Screenshot 4.png" alt="Screenshot 4"></div>
+        <div class="tile shot"><img src="screenshots/Screenshot 5.png" alt="Screenshot 5"></div>
       </div>
     </section>
 
-    <!-- DOCUMENTATION SECTION -->
+    <!-- DOCUMENTATION -->
     <section id="docs">
-      <div class="section-title">
-        <h3>Our Documentation</h3>
-      </div>
-
+      <h3>Documentation</h3>
       <div class="grid">
-        <div class="card doc-card">
-          <h4 class="doc-title">Requirements</h4>
-          <p class="doc-desc">Project requirements, user requirements, functional and non-functional criteria.</p>
-          <div class="doc-actions">
-            <a class="btn" href="docs/Req3.pdf" download="Requirements.pdf" aria-label="Download Requirements PDF">View PDF</a>
-          </div>
+
+        <div class="tile">
+          <h4>Requirements</h4>
+          <p>Project requirements and user stories for our game.</p>
+          <a class="btn" href="docs/Req2.pdf" download="Requirements.pdf">View PDF</a>
         </div>
 
-        <div class="card doc-card">
-          <h4 class="doc-title">Architecture</h4>
-          <p class="doc-desc">System architecture, UML diagrams, and design rationale.</p>
-          <div class="doc-actions">
-            <a class="btn" href="docs/Arch1.pdf" download="Architecture.pdf" aria-label="Download Architecture PDF">View PDF</a>
-          </div>
+        <div class="tile">
+          <h4>Architecture</h4>
+          <p>System architecture, UML diagrams, and design rationale.</p>
+          <a class="btn" href="docs/Arch2.pdf" download="Architecture.pdf">View PDF</a>
         </div>
 
-        <div class="card doc-card">
-          <h4 class="doc-title">Method Selection and Planning</h4>
-          <p class="doc-desc">Development approach, sprint plans, milestones, and decision rationale.</p>
-          <div class="doc-actions">
-            <a class="btn" href="docs/Plan3.pdf" download="MethodSelectionAndPlanning.pdf" aria-label="Download Method Selection and Planning PDF">View PDF</a>
-          </div>
+        <div class="tile">
+          <h4>Method Selection and Planning</h4>
+          <p>Development approach, sprint plans, and milestones.</p>
+          <a class="btn" href="docs/Plan2.pdf" download="MethodSelectionAndPlanning.pdf">View PDF</a>
         </div>
 
-        <div class="card doc-card">
-          <h4 class="doc-title">Risk Assessment and Mitigation</h4>
-          <p class="doc-desc">Identified risks, impact analysis, mitigation actions, and residual risk.</p>
-          <div class="doc-actions">
-            <a class="btn" href="docs/Risk1.pdf" download="RiskAssessmentAndMitigation.pdf" aria-label="Download Risk Assessment and Mitigation PDF">View PDF</a>
-          </div>
+        <div class="tile">
+          <h4>Risk Assessment and Mitigation</h4>
+          <p>Identified risks, impact analysis, and mitigation strategies.</p>
+          <a class="btn" href="docs/Risk2.pdf" download="RiskAssessmentAndMitigation.pdf">View PDF</a>
         </div>
 
-        <div class="card doc-card">
-          <h4 class="doc-title">Implementation</h4>
-          <p class="doc-desc">Technical implementation details, structure, and testing approach.</p>
-          <div class="doc-actions">
-            <a class="btn" href="docs/Impl1.pdf" download="Implementation.pdf" aria-label="Download Implementation PDF">View PDF</a>
-          </div>
+        <div class="tile">
+          <h4>Implementation</h4>
+          <p>Technical implementation details, code structure, and testing approach.</p>
+          <a class="btn" href="docs/Impl2.pdf" download="Implementation.pdf">View PDF</a>
         </div>
 
-        <div class="card doc-card">
-          <h4 class="doc-title">Weekly Plan</h4>
-          <p class="doc-desc">How tasks were planned, delegated, and tracked across the sprint.</p>
-          <div class="doc-actions">
-            <a class="btn" href="docs/Plan1.pdf" download="Plan.pdf" aria-label="Download Plan PDF">View PDF</a>
-          </div>
+        <div class="tile">
+          <h4>Weekly Plan</h4>
+          <p>Explaining how we planned and delegated tasks.</p>
+          <a class="btn" href="docs/Plan2.pdf" download="Plan.pdf">View PDF</a>
         </div>
+
       </div>
     </section>
 
-    <!-- TEAM SECTION -->
-<!-- TEAM SECTION -->
+    <!-- TEAM -->
     <section id="team">
-      <div class="section-title">
-        <h3>Our Team</h3>
-      </div>
-    
+      <h3>Team</h3>
       <div class="grid">
-        <div class="card team-card"><div class="avatar"></div><div class="team-name">Bailey Eyers</div><p class="role">Team Member</p></div>
-        <div class="card team-card"><div class="avatar"></div><div class="team-name">Ronny Watt</div><p class="role">Team Member</p></div>
-        <div class="card team-card"><div class="avatar"></div><div class="team-name">Enkhtuguldur Sarantsetseg</div><p class="role">Team Member</p></div>
-        <div class="card team-card"><div class="avatar"></div><div class="team-name">Kyle Clifton</div><p class="role">Team Member</p></div>
-        <div class="card team-card"><div class="avatar"></div><div class="team-name">Matt Hollyhead</div><p class="role">Team Member</p></div>
-        <div class="card team-card"><div class="avatar"></div><div class="team-name">Max Pither</div><p class="role">Team Member</p></div>
-        <div class="card team-card"><div class="avatar"></div><div class="team-name">William Martin</div><p class="role">Team Member</p></div>
+        <div class="team-item"><div class="name">Bailey Eyers</div><p class="role">Team Member</p></div>
+        <div class="team-item"><div class="name">Ronny Watt</div><p class="role">Team Member</p></div>
+        <div class="team-item"><div class="name">Enkhtuguldur Sarantsetseg</div><p class="role">Team Member</p></div>
+        <div class="team-item"><div class="name">Kyle Clifton</div><p class="role">Team Member</p></div>
+        <div class="team-item"><div class="name">Matt Hollyhead</div><p class="role">Team Member</p></div>
+        <div class="team-item"><div class="name">Max Pither</div><p class="role">Team Member</p></div>
+        <div class="team-item"><div class="name">William Martin</div><p class="role">Team Member</p></div>
       </div>
     </section>
 
-    <!-- TUTORIAL SECTION -->
-    <section id="tutorial">
-      <div class="section-title">
-        <h3>Tutorial</h3>
-      </div>
+    <footer>
+      © <span id="year"></span> ENG1 Group 7
+    </footer>
 
-      <div class="video-title">Tutorial: How to Play – ENG1 Group 7</div>
-
-      <!-- Click-to-play YouTube thumbnail -->
-      <div class="video-wrapper card" data-video="REPLACE_WITH_YOUTUBE_ID">
-        <img class="video-thumb" src="https://img.youtube.com/vi/REPLACE_WITH_YOUTUBE_ID/maxresdefault.jpg" alt="Tutorial Thumbnail"/>
-        <div class="play-overlay">
-          <button type="button" aria-label="Play tutorial video">Play</button>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="container footer">
-    <div>© <span id="year"></span> ENG1 Group 7. All rights reserved.</div>
-  </footer>
+  </div>
 
   <script>
-    // Site configuration (edit these values only)
     const SITE = {
-      gameName: "ENG1 Group 7",
       version: "1.0.0",
       artifact: {
-        // Keep the same folder structure as your current site.
-        // Replace the URL/filename if your zip differs.
         url: "Downloads/ENG1-Group7-main.zip",
         filename: "DetentionDash_v1.0.0.zip",
         ext: ".zip",
       },
     };
 
-    // Inject dynamic data into HTML
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("version").textContent = SITE.version;
 
@@ -360,29 +304,6 @@
     btn.href = SITE.artifact.url;
     btn.setAttribute("download", SITE.artifact.filename);
     document.getElementById("artifactExt").textContent = `( ${SITE.artifact.ext} )`;
-
-    // Replace thumbnail with YouTube iframe on click
-    const wrapper = document.querySelector(".video-wrapper");
-    wrapper.addEventListener("click", () => {
-      const id = wrapper.getAttribute("data-video");
-      if (!id || id === "REPLACE_WITH_YOUTUBE_ID") return;
-
-      const iframe = document.createElement("iframe");
-      iframe.setAttribute("allowfullscreen", "");
-      iframe.setAttribute("title", "Tutorial Video");
-      iframe.setAttribute("frameborder", "0");
-      iframe.setAttribute(
-        "allow",
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      );
-      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-
-      wrapper.innerHTML = "";
-      wrapper.appendChild(iframe);
-    });
   </script>
 </body>
 </html>
-
