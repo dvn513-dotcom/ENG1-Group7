@@ -56,15 +56,24 @@
       align-items:center;
       gap:12px;
     }
-
     .logo{
-      width:42px;height:42px;border-radius:10px;
-      display:grid;place-items:center;
-      background:linear-gradient(135deg, rgba(217,249,157,.25), rgba(251,191,36,.20));
-      border:1px solid rgba(255,255,255,.10);
-      font-weight:800;
-      color:#0b120f;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg, rgba(217,249,157,.25), rgba(251,191,36,.20));
+    border:1px solid rgba(255,255,255,.10);
+    overflow:hidden;
     }
+
+    .logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    }
+
 
     .brand h1{margin:0;font-size:18px}
     .brand p{margin:0;color:var(--muted);font-size:13px}
@@ -196,7 +205,7 @@
     <section id="download">
       <h2>Download</h2>
       <p>
-        ENG1 Group 7's game is a school-themed maze escape game. You have 5 minutes to find the exit while avoiding the teacher.
+        ENG1 Group 7 is a school-themed maze escape game. You have 5 minutes to find the exit while avoiding the teacher.
         Events around the school can help or slow you down.
       </p>
 
@@ -309,4 +318,3 @@
   </script>
 </body>
 </html>
-
