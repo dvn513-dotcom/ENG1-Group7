@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,18 +17,17 @@
       --border:rgba(255,255,255,.10);
       --text:#eaf2ed;
       --muted:#b6c7bd;
-
       --accent:#d9f99d;
       --accent2:#fbbf24;
-
       --radius:14px;
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
-      background:#0b1410;
+      background:var(--bg);
       color:var(--text);
       line-height:1.6;
     }
@@ -42,37 +42,31 @@
       margin-bottom:18px;
     }
 
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
+      margin-bottom:10px;
     }
+
     .logo{
-    width:42px;
-    height:42px;
-    border-radius:10px;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(135deg, rgba(217,249,157,.25), rgba(251,191,36,.20));
-    border:1px solid rgba(255,255,255,.10);
-    overflow:hidden;
+      width:42px;
+      height:42px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      background:rgba(255,255,255,.03);
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .logo img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    display:block;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
     }
-
 
     .brand h1{margin:0;font-size:18px}
     .brand p{margin:0;color:var(--muted);font-size:13px}
@@ -82,18 +76,17 @@
       gap:10px;
       flex-wrap:wrap;
     }
+
     nav a{
       padding:6px 10px;
       border-radius:10px;
       border:1px solid rgba(255,255,255,.08);
       background:rgba(255,255,255,.03);
       font-size:14px;
-    }
-    nav a:hover{
-      background:rgba(255,255,255,.06);
+      text-decoration:none;
+      color:var(--text);
     }
 
-    /* Sections */
     section{
       border:1px solid var(--border);
       border-radius:var(--radius);
@@ -106,10 +99,15 @@
     h3{margin:0 0 10px;font-size:18px}
     p{margin:0 0 10px;color:rgba(234,242,237,.88)}
 
-    /* Buttons */
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
     .btn{
-      display:inline-flex;align-items:center;gap:10px;
+      display:inline-block;
       padding:10px 12px;
       border-radius:12px;
       border:1px solid rgba(255,255,255,.12);
@@ -117,14 +115,15 @@
       font-weight:700;
       cursor:pointer;
       text-decoration:none;
+      color:var(--text);
     }
+
     .btn.primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       color:#0b120f;
       border:none;
     }
 
-    /* Small meta list */
     .meta{
       margin-top:10px;
       color:var(--muted);
@@ -132,7 +131,6 @@
     }
     .meta div{margin-top:4px}
 
-    /* Simple grid */
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -145,10 +143,10 @@
       padding:12px;
       background:rgba(255,255,255,.03);
     }
+
     .tile h4{margin:0 0 6px;font-size:16px}
     .tile p{margin:0 0 10px;color:var(--muted);font-size:14px}
 
-    /* Screenshots */
     .shot img{
       width:100%;
       border-radius:12px;
@@ -156,17 +154,74 @@
       display:block;
     }
 
-    /* Team list */
-    .team-item{
+    .muted{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .diagram-links{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:10px;
+      margin:12px 0 16px;
+    }
+
+    .diagram-links a{
+      display:block;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      text-decoration:none;
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .diagram-card{
       border:1px solid rgba(255,255,255,.08);
       border-radius:12px;
       padding:12px;
       background:rgba(255,255,255,.03);
+      margin-bottom:12px;
     }
-    .team-item .name{font-weight:800;margin-bottom:2px}
-    .team-item .role{color:var(--muted);font-size:14px;margin:0}
 
-    /* Footer */
+    .diagram-card h4{
+      margin:0 0 10px;
+      font-size:16px;
+    }
+
+    .diagram-card img{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      display:block;
+      cursor:pointer;
+    }
+
+    .lightbox{
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      height:100%;
+      display:none;
+      background:rgba(0,0,0,.75);
+      padding:20px;
+    }
+
+    .lightbox.open{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox img{
+      max-width:100%;
+      max-height:100%;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(0,0,0,.2);
+    }
+
     footer{
       color:var(--muted);
       font-size:14px;
@@ -180,24 +235,23 @@
   <div class="wrap">
 
     <header>
-        <div class="brand">
+      <div class="brand">
         <div class="logo">
-            <img src="Screenshots/logo.png">
+          <img src="Screenshots/logo.png">
         </div>
         <div>
-            <h1>Detention Dash</h1>
-            <p>School escape maze game (ENG1)</p>
+          <h1>Detention Dash</h1>
+          <p>School escape maze game (ENG1)</p>
         </div>
-        </div>
-
-
-        <nav aria-label="Navigation">
-          <a href="#download">Download</a>
-          <a href="#screenshots">Screenshots</a>
-          <a href="#docs">Documentation</a>
-          <a href="#team">Team</a>
-        </nav>
       </div>
+
+      <nav aria-label="Navigation">
+        <a href="#download">Download</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#diagrams">Diagrams</a>
+        <a href="#docs">Documentation</a>
+        <a href="#team">Team</a>
+      </nav>
     </header>
 
     <!-- DOWNLOAD -->
@@ -212,27 +266,25 @@
         <a class="btn primary" id="downloadBtn" href="#" download>
           Download <span id="artifactExt">( .zip )</span>
         </a>
-      
+
         <a
           class="btn primary"
           href="https://dvn513-dotcom.github.io/old-ENG1-website/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Link to old game and previous website"
         >
           Old Game & Previous Website
         </a>
+
         <a
           class="btn primary"
           href="https://github.com/WilliamM0721/ENG1-Part2"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Link to our GitHub repository"
         >
           View GitHub Repository
         </a>
       </div>
-
 
       <div class="meta">
         <div>Version: <strong id="version">1.0.0</strong></div>
@@ -245,52 +297,89 @@
     <section id="screenshots">
       <h3>In-Game Screenshots</h3>
       <div class="grid">
-        <div class="tile shot"><img src="Screenshots/screenshot1.jpg"></div>
-        <div class="tile shot"><img src="Screenshots/screenshot2.jpg"></div>
-        <div class="tile shot"><img src="Screenshots/screenshot3.jpg"></div>
-        <div class="tile shot"><img src="Screenshots/screenshot4.jpg"></div>
-        <div class="tile shot"><img src="Screenshots/screenshot5.jpg"></div>
+        <div class="zoomable"> src="Screenshots/screenshot1.jpg" alt="In-game screenshot 1"></div>
+        <div class="zoomable"> src="Screenshots/screenshot2.jpg" alt="In-game screenshot 2"></div>
+        <div class="zoomable"> src="Screenshots/screenshot3.jpg" alt="In-game screenshot 3"></div>
+        <div class="zoomable"> src="Screenshots/screenshot4.jpg" alt="In-game screenshot 4"></div>
+        <div class="zoomable"> src="Screenshots/screenshot5.jpg" alt="In-game screenshot 5"></div>
       </div>
     </section>
 
-<!-- DOCUMENTATION -->
-<section id="docs">
-  <h3>Documentation</h3>
-  <div class="grid">
+    <!-- DIAGRAMS -->
+    <section id="diagrams">
+      <h3>Diagrams</h3>
 
-    <div class="tile">
-      <h4>Change Report</h4>
-      <p>Summary of changes made throughout development.</p>
-      <a class="btn" href="docs/Change2.pdf" download="ChangeReport.pdf">View PDF</a>
-    </div>
+      <div class="diagram-links">
+        <a href="#ecs">ECS Class Diagram</a>
+        <a href="#endgame">End-of-Game Sequence Diagram</a>
+        <a href="#gamestate">Game State Flowchart Diagram</a>
+        <a href="#shortcut">Hidden Shortcut Trigger Logic Diagram</a>
+        <a href="#leaderboard">Leaderboard Data Persistence Diagram</a>
+        <a href="#playerscore">Player Score Data Flow Diagram</a>
+      </div>
 
-    <div class="tile">
-      <h4>Implementation</h4>
-      <p>Technical implementation details and code structure.</p>
-      <a class="btn" href="docs/Impl2.pdf" download="Implementation.pdf">View PDF</a>
-    </div>
+      <div class="diagram-card" id="ecs">
+        <h4>ECS Class Diagram</h4>
+        <img class="zoomable" src="Screenshots/ECSClassDiagram.png"></div>
 
-    <div class="tile">
-      <h4>Testing</h4>
-      <p>Testing strategy, test cases, and results.</p>
-      <a class="btn" href="docs/Test2.pdf" download="Testing.pdf">View PDF</a>
-    </div>
+      <div class="diagram-card" id="endgame">
+        <h4>End-of-Game Sequence Diagram</h4>
+        <img class="zoomable" src="Screenshots/End-of-GameSequenceDiagram.png"></div>
 
-    <div class="tile">
-      <h4>User Evaluation</h4>
-      <p>User feedback, evaluation results, and analysis.</p>
-      <a class="btn" href="docs/Eval2.pdf" download="UserEvaluation.pdf">View PDF</a>
-    </div>
+      <div class="diagram-card" id="gamestate">
+        <h4>Game State Flowchart Diagram</h4>
+        <img class="zoomable" src="Screenshots/GameStateFlowchartDiagram.png"></div>
 
-    <div class="tile">
-      <h4>Continuous Integration</h4>
-      <p>CI setup, automation, and development workflow.</p>
-      <a class="btn" href="docs/CI2.pdf" download="ContinuousIntegration.pdf">View PDF</a>
-    </div>
+      <div class="diagram-card" id="shortcut">
+        <h4>Hidden Shortcut Trigger Logic Diagram</h4>
+        <img class="zoomable" src="Screenshots/HiddenShortcutTriggerLogicDiagram.png"></div>
 
-  </div>
-</section>
+      <div class="diagram-card" id="leaderboard">
+        <h4>Leaderboard Data Persistence Diagram</h4>
+        <img class="zoomable" src="Screenshots/LeaderboardDataPersistenceDiagram.png"></div>
 
+      <div class="diagram-card" id="playerscore">
+        <h4>Player Score Data Flow Diagram</h4>
+        <img class="zoomable" src="Screenshots/PlayerScoreDataFlowDiagram.png"></div>
+    </section>
+
+    <!-- DOCUMENTATION -->
+    <section id="docs">
+      <h3>Documentation</h3>
+      <div class="grid">
+
+        <div class="tile">
+          <h4>Change Report</h4>
+          <p>Summary of changes made throughout development</p>
+          <a class="btn" href="docs/Change2.pdf" download="ChangeReport.pdf">View PDF</a>
+        </div>
+
+        <div class="tile">
+          <h4>Implementation</h4>
+          <p>Technical implementation details</p>
+          <a class="btn" href="docs/Impl2.pdf" download="Implementation.pdf">View PDF</a>
+        </div>
+
+        <div class="tile">
+          <h4>Testing</h4>
+          <p>Testing strategy, test cases, and results</p>
+          <a class="btn" href="docs/Test2.pdf" download="Testing.pdf">View PDF</a>
+        </div>
+
+        <div class="tile">
+          <h4>User Evaluation</h4>
+          <p>User feedback, evaluation results, and analysis</p>
+          <a class="btn" href="docs/Eval2.pdf" download="UserEvaluation.pdf">View PDF</a>
+        </div>
+
+        <div class="tile">
+          <h4>Continuous Integration</h4>
+          <p>CI setup and automation</p>
+          <a class="btn" href="docs/CI2.pdf" download="ContinuousIntegration.pdf">View PDF</a>
+        </div>
+
+      </div>
+    </section>
 
     <!-- TEAM -->
     <section id="team">
@@ -312,6 +401,11 @@
 
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" alt="Expanded diagram">
+  </div>
+
   <script>
     const SITE = {
       version: "1.0.0",
@@ -329,12 +423,30 @@
     btn.href = SITE.artifact.url;
     btn.setAttribute("download", SITE.artifact.filename);
     document.getElementById("artifactExt").textContent = `( ${SITE.artifact.ext} )`;
+
+    // simple lightbox for diagram images
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const zoomables = document.querySelectorAll(".zoomable");
+
+    zoomables.forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add("open");
+      });
+    });
+
+    // click anywhere outside the image to close
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("open");
+        lightboxImg.src = "";
+      }
+    });
+
   </script>
 </body>
 </html>
-
-
-
 
 
 
