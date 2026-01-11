@@ -331,31 +331,64 @@
           This diagram shows the overall Entity–Component–System (ECS) architecture used throughout the game. 
           It illustrates how entities are built from modular components and how different systems operate on
           those components without tight coupling. This structure supports multiple functional requirements, 
-          including FR_SCORE, FR_PAUSE, and FR_ACHIEVEMENTS, by allowing new behaviour to be added without 
-          modifying existing entity logic. The ECS approach was chosen to keep the codebase maintainable as 
-          new features were introduced in later assessments. It also makes it easier to isolate gameplay logic,
-          UI behaviour, and background systems such as scoring and persistence.
+          such as FR_SCORE, FR_PAUSE, and FR_ACHIEVEMENTS. The ECS approach was chosen as itmakes it easier 
+          to isolate gameplay logic, UI behaviour, and background systems such as scoring and timing.
         </p>
 
       <div class="diagram-card" id="endgame">
         <h4>End-of-Game Sequence Diagram</h4>
         <img class="zoomable" src="Screenshots/End-of-GameSequenceDiagram.png"></div>
+        <p class="diagram-desc">
+          This sequence diagram illustrates the interactions that occur when the game ends, starting from the game
+          controller and flowing through the message bus to other systems. It shows how the score system finalises
+          the player’s score, achievements are evaluated, and the leaderboard is updated. This diagram supports both
+          FR_SCORE and FR_LEADERBOARD by clearly defining the order in which these actions must occur. The sequence-based
+          design was introduced to avoid race conditions and ensure all end-of-game logic completes before the leaderboard
+          is displayed. It also demonstrates the use of message-based communication between systems.
+        </p>
 
       <div class="diagram-card" id="gamestate">
         <h4>Game State Flowchart Diagram</h4>
         <img class="zoomable" src="Screenshots/GameStateFlowchartDiagram.png"></div>
+        <p class="diagram-desc">
+          This flowchart represents the high-level game states and the transitions between them, including
+          the main menu, playing, paused, and game over states. It directly shows FR_PAUSE by clearly
+          showing how the game can be paused and resumed without resetting progress or timers. The diagram
+          also shows how the game transitions to the leaderboard screen once the game ends and scores are
+          calculated, linking to FR_LEADERBOARD. This structure was introduced to display the prevention of
+          invalid transitions, such as gameplay continuing while the game is paused.
+        </p>
 
       <div class="diagram-card" id="shortcut">
         <h4>Hidden Shortcut Trigger Logic Diagram</h4>
         <img class="zoomable" src="Screenshots/HiddenShortcutTriggerLogicDiagram.png"></div>
+        <p class="diagram-desc">
+          This diagram explains the logic used to detect and activate a hidden shortcut during gameplay.
+          It shows how player movement and collision checks are evaluated before updating the game state
+          to reveal the shortcut. This diagram shows the logic behind the hidden shortcut and ensures the
+          shortcut is only triggered under specific conditions and cannot be accessed accidentally. The
+          logic was separated into a clear flow to make the behaviour easier to test and reason about.
+        </p>
 
       <div class="diagram-card" id="leaderboard">
         <h4>Leaderboard Data Persistence Diagram</h4>
         <img class="zoomable" src="Screenshots/LeaderboardDataPersistenceDiagram.png"></div>
+        <p class="diagram-desc">
+          This diagram demonstrates how leaderboard data is stored and retrieved using a local text file. 
+          This directly addresses FR_LEADERBOARD by ensuring that top scores persist across game sessions.
+          The decision to use a simple text file was made to keep persistence lightweight and easy to debug.
+          Limiting storage to the top five scores also ensures predictable performance and file size.
+        </p>
 
       <div class="diagram-card" id="playerscore">
         <h4>Player Score Data Flow Diagram</h4>
         <img class="zoomable" src="Screenshots/PlayerScoreDataFlowDiagram.png"></div>
+        <p class="diagram-desc">
+          This diagram shows how score data flows through the game from in-game events to final score calculation.
+          It highlights how different systems, such as the event system and timer, contribute to the final score value.
+          This directly supports FR_SCORE and FR_ACHIEVEMENTS, ensuring that scoring remains consistent and centralised.
+          The diagram was created to clarify how multiple inputs affect the score without tightly coupling systems together.
+        </p>
     </section>
 
     <!-- DOCUMENTATION -->
@@ -462,4 +495,5 @@
   </script>
 </body>
 </html>
+
 
