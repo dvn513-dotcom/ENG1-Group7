@@ -327,6 +327,15 @@
       <div class="diagram-card" id="ecs">
         <h4>ECS Class Diagram</h4>
         <img class="zoomable" src="Screenshots/ECSClassDiagram.png"></div>
+        <p class="diagram-desc">
+          This diagram shows the overall Entity–Component–System (ECS) architecture used throughout the game. 
+          It illustrates how entities are built from modular components and how different systems operate on
+          those components without tight coupling. This structure supports multiple functional requirements, 
+          including FR_SCORE, FR_PAUSE, and FR_ACHIEVEMENTS, by allowing new behaviour to be added without 
+          modifying existing entity logic. The ECS approach was chosen to keep the codebase maintainable as 
+          new features were introduced in later assessments. It also makes it easier to isolate gameplay logic,
+          UI behaviour, and background systems such as scoring and persistence.
+        </p>
 
       <div class="diagram-card" id="endgame">
         <h4>End-of-Game Sequence Diagram</h4>
@@ -453,3 +462,4 @@
   </script>
 </body>
 </html>
+
